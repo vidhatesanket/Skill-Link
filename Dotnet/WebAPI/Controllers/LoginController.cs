@@ -1,32 +1,68 @@
-using System.Diagnostics;
+// using Microsoft.AspNetCore.Mvc;
+// using System.Collections.Generic;
+// using BOL;
+// using DAL;
+//     // [ApiController]
+//     // [Route("api/[controller]")]
+//     public class LoginController : ControllerBase
+//     {
+    
+
+//         [HttpPost]
+//         public void Login([FromBody] User model)
+//         {
+//             List<User> plist=DBManager.getAllUsers();
+//             var user = plist.Find(u => u.Uname== model.Uname && u.Pwd == model.Pwd);
+//             Console.WriteLine(model.Uname+" "+model.Pwd);
+//             if (user != null)
+//             {
+//                 // return Ok(new { message = "Login successful" });
+//                 Console.WriteLine("Ok");
+//             }
+
+//             // return Unauthorized(new { message = "Invalid credentials" });
+//             Console.WriteLine("Not ok");
+//             // return View();
+//         }
+//     }
+
+
+
+
+
+
+
+
 using Microsoft.AspNetCore.Mvc;
-using BOL;
-using DAL;
-using System.ComponentModel.DataAnnotations;
-using Org.BouncyCastle.Asn1.Iana;
-namespace WebAPI.Controllers;
+using BOL; // Import your User model
+using DAL; // Import your DBManager class
+using System;
 [ApiController]
-[Route("api/[controller]")]
-
-public class LoginController : Controller
+[Route("[controller]")]
+public class LoginController : ControllerBase
 {
-    private readonly ILogger<LoginController> _logger;
-
-    public LoginController(ILogger<LoginController> logger)
+    [HttpPost]
+    public IActionResult Login([FromBody] User model)
     {
-        _logger = logger;
-    }
-
-        [HttpPost]
-        public IActionResult userlogin([FromBody]User model){
-            List<User> plist = DBManager.getAllUsers();
-            Console.WriteLine("HII");
-            foreach (User u in plist){
-                if (model.Uname == u.Uname && model.Pwd == u.Pwd){
-                    return Ok(new { message = "Login successful" });
-                }
+        Console.WriteLine(model.Uname +" "+model.Pwd);
+        try
+        {
+            List<User> userList = DBManager.getAllUsers(); // Fetch users from the database
+            
+            var user = userList.Find(u => u.Uname == model.Uname && u.Pwd == model.Pwd);
+            
+            if (user != null)
+            {
+                return Ok(new { message = "Login successful" });
             }
+
             return Unauthorized(new { message = "Invalid credentials" });
         }
-
+        catch (Exception ex)
+        {
+            // Log the exception
+            Console.WriteLine("Exception occurred: " + ex.Message);
+            return StatusCode(500); // Internal Server Error
+        }
+    }
 }

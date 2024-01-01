@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\OneDrive\\Desktop\\Proj\\Dotnet\\WebAPI\\webapi.csproj": {}
+    "C:\\Users\\user\\OneDrive\\Desktop\\Skill-Link\\Dotnet\\WebAPI\\webapi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\OneDrive\\Desktop\\Proj\\Dotnet\\WebAPI\\webapi.csproj": {
+    "C:\\Users\\user\\OneDrive\\Desktop\\Skill-Link\\Dotnet\\WebAPI\\webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\OneDrive\\Desktop\\Proj\\Dotnet\\WebAPI\\webapi.csproj",
+        "projectUniqueName": "C:\\Users\\user\\OneDrive\\Desktop\\Skill-Link\\Dotnet\\WebAPI\\webapi.csproj",
         "projectName": "webapi",
-        "projectPath": "C:\\Users\\user\\OneDrive\\Desktop\\Proj\\Dotnet\\WebAPI\\webapi.csproj",
+        "projectPath": "C:\\Users\\user\\OneDrive\\Desktop\\Skill-Link\\Dotnet\\WebAPI\\webapi.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\OneDrive\\Desktop\\Proj\\Dotnet\\WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\user\\OneDrive\\Desktop\\Skill-Link\\Dotnet\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

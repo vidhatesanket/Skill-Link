@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Joblisting from './Joblisting';
 import Login from './Login';
 // import ProjectNavbar from './ProjectNavbar';
-
+import Navigation from './Navigation';
 function App() {
   
   let [flag,setFlag]=useState(false);
@@ -11,6 +11,7 @@ function App() {
   }
   return (
     <div>
+      <Navigation></Navigation>
       {/* <ProjectNavbar></ProjectNavbar> */}
       <input type="submit" value="Show Jobs" onClick={f1}/>
       {flag && <Joblisting></Joblisting>}

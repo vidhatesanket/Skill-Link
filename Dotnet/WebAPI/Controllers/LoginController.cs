@@ -42,7 +42,7 @@ using System;
 public class LoginController : ControllerBase
 {
     [HttpPost]
-    public IActionResult Login([FromBody] User model)
+    public IActionResult Login([FromForm] User model)
     {
         Console.WriteLine(model.Uname +" "+model.Pwd);
         try

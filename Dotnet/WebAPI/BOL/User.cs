@@ -4,6 +4,9 @@ public class User{
     public string Uname{get;set;}
     public string Pwd{get;set;}
     private string Email{get;set;}
+    public User(){
+        
+    }
 
     public User(string username,string password){
         this.Uname=username;

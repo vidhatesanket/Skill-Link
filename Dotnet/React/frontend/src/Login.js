@@ -1,58 +1,3 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// const LoginForm = () => {
-//   const [username, setUsername] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   const sendCredentialsToAPI = async (username, password) => {
-//     const credentials = {
-//       username: username,
-//       password: password,
-//     };
-
-//     try {
-//       const response = await axios.post('https://reqres.in/api/register', credentials);
-//       console.log('Credentials sent successfully!', response.data);
-//       // Handle response or update UI based on the API response
-//     } catch (error) {
-//       console.error('Error sending credentials:', error);
-//       // Handle error scenarios
-//     }
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     sendCredentialsToAPI(username, password);
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <div>
-//         <label htmlFor="username">Username:</label>
-//         <input
-//           type="text"
-//           id="username"
-//           value={username}
-//           onChange={(e) => setUsername(e.target.value)}
-//         />
-//       </div>
-//       <div>
-//         <label htmlFor="password">Password:</label>
-//         <input
-//           type="password"
-//           id="password"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//         />
-//       </div>
-//       <button type="submit">Login</button>
-//     </form>
-//   );
-// };
-
-// export default LoginForm;
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -60,58 +5,56 @@ const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
 
-  const sendCredentialsToAPI = async (username, password) => {
-    const credentials = {
-      email: username,
-      password: password,
-    };
+  const sendCredentialsToAPI = async (uname, pwd) => {
+    const credentials = new URLSearchParams();
+    credentials.append('Uname', uname);
+    credentials.append('Pwd', pwd);
 
     try {
-      const response = await axios.post('https://reqres.in/api/register', credentials);
+      const response = await axios.post('http://localhost:5020/Login', credentials);
       console.log('Credentials sent successfully!', response.data);
-      // Assuming the API returns a token or user data upon successful registration
-      setSuccessMessage('Registration successful!'); // Update UI or perform actions with the response data
+      // Handle the response here, such as setting tokens or updating UI based on success
     } catch (error) {
       console.error('Error sending credentials:', error);
-      setError('Failed to register. Please try again.'); // Update UI with an error message
+      setError('Failed to log in. Please try again.');
+      // Handle error scenarios or update UI with error message
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); // Reset error message
-    setSuccessMessage(''); // Reset success message
-    sendCredentialsToAPI(username, password);
+    await sendCredentialsToAPI(username, password);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-      {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
-      <div>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <div>
+      
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
   );
 };
 
 export default LoginForm;
-

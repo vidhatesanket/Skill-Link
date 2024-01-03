@@ -4,7 +4,7 @@ namespace DAL;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 public class DBManager{
-    public static string connString=@"server=127.0.0.1;port=3306;user=root;password=Sanket@01;database=projectdb";
+    public static string connString=@"server=127.0.0.1;port=3306;user=root;password=welcome;database=projectdb";
     
      
     public static List<User> getAllUsers(){

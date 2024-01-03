@@ -1,21 +1,20 @@
-import { useState } from 'react';
-import Joblisting from './Joblisting';
 import Login from './Login';
-// import ProjectNavbar from './ProjectNavbar';
+import { BrowserRouter , Route, Routes } from 'react-router-dom';
 import Navigation from './Navigation';
+import Register from './Register';
+import Joblisting from './Joblisting';
+
 function App() {
-  
-  let [flag,setFlag]=useState(false);
-  let f1=()=>{
-    setFlag(true)
-  }
   return (
     <div>
-      <Navigation></Navigation>
-      {/* <ProjectNavbar></ProjectNavbar> */}
-      <input type="submit" value="Show Jobs" onClick={f1}/>
-      {flag && <Joblisting></Joblisting>}
-      <Login></Login>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/"  element={<Navigation /> } />
+          <Route path="/Login" element={<Login /> } />
+          <Route path="/Register" element={<Register /> } />
+          <Route path="/Joblisting" element={<Joblisting /> } />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

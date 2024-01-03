@@ -42,7 +42,7 @@ export default class Joblisting extends  React.Component{
     return (
         <div>
         <h1>Job Listings</h1>
-        <table border={"2px"}>
+        <table border="2px">
           <thead>
             <tr>
               <th>ID</th>

@@ -4,7 +4,7 @@ namespace DAL;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 public class DBManager{
-    public static string connString=@"server=127.0.0.1;port=3306;user=root;password=welcome;database=projectdb";
+    public static string connString=@"server=127.0.0.1;port=3306;user=root;password=Sanket@01;database=projectdb";
     
      
     public static List<User> getAllUsers(){
@@ -56,6 +56,30 @@ public class DBManager{
         conn.Close();
 
         return jobList;
+    }
+
+
+
+    public static int addUser(User u){
+        string uname=u.UserName;
+        string password=u.Password;
+        string email=u.Email;
+        string moNumber=u.MobileNumber;
+        string query="insert into Users(Username,Password,Email,PhoneNumber) values(@uname,@pwd,@email,@mobnumber)";
+
+        int rowsAffected;
+        using (MySqlConnection connection = new MySqlConnection(connString))
+        {
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@uname",uname);
+            command.Parameters.AddWithValue("@pwd", password);
+            command.Parameters.AddWithValue("@email",email);
+            command.Parameters.AddWithValue("@mobnumber",moNumber);
+            connection.Open();
+            rowsAffected = command.ExecuteNonQuery();
+            connection.Close();
+        }
+        return rowsAffected;
     }
 
 }

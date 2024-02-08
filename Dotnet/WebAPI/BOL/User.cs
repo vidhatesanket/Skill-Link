@@ -1,15 +1,23 @@
 namespace BOL;
 public class User{
-    private int Uid{get;set;}
-    public string Uname{get;set;}
-    public string Pwd{get;set;}
-    private string Email{get;set;}
+    private int UserId{get;set;}
+    public string UserName{get;set;}
+    public string Password{get;set;}
+    public string Email{get;set;}
+    public string MobileNumber{get;set;}
     public User(){
         
     }
 
     public User(string username,string password){
-        this.Uname=username;
-        this.Pwd=password;
+        this.UserName=username;
+        this.Password=password;
     }
+
+    // public User(string username,string password,string email,string mobnumber){
+    //     this.UserName=username;
+    //     this.Password=password;
+    //     this.Email=email;
+    //     this.MobileNumber=mobnumber;
+    // }
 }

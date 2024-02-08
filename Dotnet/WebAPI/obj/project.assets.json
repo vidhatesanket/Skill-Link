@@ -2234,19 +2234,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\IET\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\IET\\Documents\\Project\\Skill-Link\\Dotnet\\WebAPI\\webapi.csproj",
+      "projectUniqueName": "C:\\Users\\user\\OneDrive\\Desktop\\Skill-Link\\Skill-Link\\Dotnet\\WebAPI\\webapi.csproj",
       "projectName": "webapi",
-      "projectPath": "C:\\Users\\IET\\Documents\\Project\\Skill-Link\\Dotnet\\WebAPI\\webapi.csproj",
-      "packagesPath": "C:\\Users\\IET\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\IET\\Documents\\Project\\Skill-Link\\Dotnet\\WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\user\\OneDrive\\Desktop\\Skill-Link\\Skill-Link\\Dotnet\\WebAPI\\webapi.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\OneDrive\\Desktop\\Skill-Link\\Skill-Link\\Dotnet\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\IET\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

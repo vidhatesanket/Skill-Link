@@ -8,8 +8,8 @@ const Login = () => {
 
   const sendCredentialsToAPI = async (uname, pwd) => {
     const credentials = new URLSearchParams();
-    credentials.append('Uname', uname);
-    credentials.append('Pwd', pwd);
+    credentials.append('UserName', uname);
+    credentials.append('Password', pwd);
 
     
 

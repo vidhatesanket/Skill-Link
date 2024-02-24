@@ -7,14 +7,16 @@ export default function ServiceTable() {
   const [selectedUserID, setSelectedUserID] = useState([]);
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [confirm, setConfirm] = useState(false);
-  const serviceProviderData = JSON.parse(localStorage.getItem("serviceProvider"));
+  const serviceProviderData = JSON.parse(
+    localStorage.getItem("serviceProvider")
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await axios.get(
           "http://localhost:5020/api/ServiceProvider/userrequirements?skills=" +
-          serviceProviderData.skills
+            serviceProviderData.skills
         );
         setslist([...result.data]);
       } catch (err) {
@@ -29,10 +31,12 @@ export default function ServiceTable() {
 
   const handleCheckboxChange = (event, ob) => {
     if (event.target.checked) {
-      setSelectedServices(prevState => [...prevState, ob.requirementID]);
-      setSelectedUserID(prevState => [...prevState, ob.userID]);
+      setSelectedServices((prevState) => [...prevState, ob.requirementID]);
+      setSelectedUserID((prevState) => [...prevState, ob.userID]);
     } else {
-      setSelectedServices(prevState => prevState.filter(id => id !== ob.requirementID));
+      setSelectedServices((prevState) =>
+        prevState.filter((id) => id !== ob.requirementID)
+      );
     }
   };
 
@@ -40,7 +44,11 @@ export default function ServiceTable() {
     try {
       const response = await axios.post(
         "http://localhost:5020/api/BookingList/serviceProvider/bookingList",
-        { requirementIDs: selectedServices, userIDs: selectedUserID, serviceProviderData }
+        {
+          requirementIDs: selectedServices,
+          userIDs: selectedUserID,
+          serviceProviderData,
+        }
       );
       setConfirmationMessage(response.data);
       setConfirm(true);
@@ -66,8 +74,6 @@ export default function ServiceTable() {
   const ServiceProviderupdate = () => {
     navigate("/ServiceProviderupdate");
   };
-
-  
 
   return (
     <div>
@@ -135,57 +141,63 @@ export default function ServiceTable() {
       <br />
       <br />
 
-      {!confirm&&(<center>
-        <h3 className="text-center">
-          List of users who are looking for: {serviceProviderData.skills}
-        </h3>
-      </center>)}
+      {!confirm && (
+        <center>
+          <h3 className="text-center">
+            List of users who are looking for: {serviceProviderData.skills}
+          </h3>
+        </center>
+      )}
       <br />
-      
-      {!confirm&&(  <table className="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">First name</th>
-            <th scope="col">Last name</th>
-            <th scope="col">Phone Number</th>
-            <th scope="col">Skills</th>
-            <th scope="col">Wages</th>
-            <th scope="col">Address</th>
-            <th scope="col">Date</th>
-            <th>Select</th>
-          </tr>
-        </thead>
-        <tbody>
-          {slist.map((ob) => (
-            <tr key={ob.userID}>
-              <td>{ob.nameFirst}</td>
-              <td>{ob.nameLast}</td>
-              <td>{ob.phoneNumber}</td>
-              <td>{ob.skills}</td>
-              <td>{ob.wages}</td>
-              <td>{ob.address}</td>
-              <td>{ob.date.split(" ")[0]}</td>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={selectedServices.includes(ob.requirementID)}
-                  onChange={(e) => handleCheckboxChange(e, ob)}
-                />
-              </td>
+
+      {!confirm && (
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">First name</th>
+              <th scope="col">Last name</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Skills</th>
+              <th scope="col">Wages</th>
+              <th scope="col">Address</th>
+              <th scope="col">Date</th>
+              <th>Select</th>
             </tr>
-          ))}
-        </tbody>
-      </table>)}
-     {!confirm&&( <div className="text-center">
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={handleConfirm}
-          disabled={selectedServices.length === 0}
-        >
-          Confirm
-        </button>
-      </div>)}
+          </thead>
+          <tbody>
+            {slist.map((ob) => (
+              <tr key={ob.userID}>
+                <td>{ob.nameFirst}</td>
+                <td>{ob.nameLast}</td>
+                <td>{ob.phoneNumber}</td>
+                <td>{ob.skills}</td>
+                <td>{ob.wages}</td>
+                <td>{ob.address}</td>
+                <td>{ob.date.split(" ")[0]}</td>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedServices.includes(ob.requirementID)}
+                    onChange={(e) => handleCheckboxChange(e, ob)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+      {!confirm && (
+        <div className="text-center">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleConfirm}
+            disabled={selectedServices.length === 0}
+          >
+            Confirm
+          </button>
+        </div>
+      )}
       {confirmationMessage && (
         <div className="text-center mt-3">
           <h4>{confirmationMessage}</h4>

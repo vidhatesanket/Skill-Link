@@ -147,14 +147,6 @@ const ServiceRegistration = () => {
                 onChange={handleChange}
                 required
               />
-              {/* <input
-                type="text"
-                placeholder="Skills"
-                name="Skills"
-                value={formData.Skills}
-                onChange={handleChange}
-                required
-              /> */}
               <select
                 className="form-control"
                 id="skills"

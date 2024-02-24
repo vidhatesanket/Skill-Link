@@ -6,11 +6,8 @@ import './index.css';
 
 import * as serviceWorker from './serviceWorker';
 import { Contact } from './components/contact';
-// import UserLogin from './components/Login';
-// import App5 from './Login page/App5';
 import Login from './components/UserLogin';
 import Registration from './components/userRegistration';
-// import ServiceLogin from './components/serviceProviderLogin';
 import { ServiceList } from './components/Loginservices/ServiceList';
 import JsonData from "./data/data.json";
 import LandingPage from "./components/Landingpage";

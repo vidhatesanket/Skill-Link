@@ -72,13 +72,6 @@ const UpdateProfile=()=>{
                 required
                 pattern="[A-Za-z]+"
               />
-              {/* <input
-                type="text"
-                placeholder="Username"
-                name="Username"
-                value={formData.Username}
-                onChange={handleChange} required
-              /> */}
               <div className="pass-input-div">
                 <input
                   type={showPassword ? "text" : "password"}

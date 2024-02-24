@@ -42,17 +42,7 @@ console.log(formData)
         console.error('Error:', error);
       }
     };
-    // const mystyle={
-     
-    //     width: "400px",
-    //     margin: "20px auto",
-    //     padding: "20px",
-    //     border: "1px solid #ccc",
-    //     // border-radius: "5px",
-    //     // background-color: "#f5f5f5"
-    //   }
-    // }
-
+    
 
     return (
         <center className="login-center1">
@@ -83,13 +73,6 @@ console.log(formData)
                 required
                 pattern="[A-Za-z]+"
               />
-              {/* <input
-                type="text"
-                placeholder="Username"
-                name="Username"
-                value={formData.Username}
-                onChange={handleChange} required
-              /> */}
               <div className="pass-input-div">
                 <input
                   type={showPassword ? "text" : "password"}

@@ -15,9 +15,7 @@ public class DBManager{
                     conn.Open();
 
                     // Prepare the SQL query to fetch the user details
-                    // string query = @"SELECT UserID, NameFirst, NameLast, Username, Password, PhoneNumber, Address 
-                    //                 FROM Users 
-                    //                 WHERE Username = @Username AND Password = @Password";
+
                     string query = @"SELECT UserID, NameFirst, NameLast, Username, Password, PhoneNumber, Address 
                                     FROM Users 
                                     WHERE BINARY Username = BINARY @Username AND BINARY Password = BINARY @Password";
@@ -181,9 +179,7 @@ public class DBManager{
                     conn.Open();
 
                     // Prepare the SQL query to fetch the service provider details
-                    // string query = "SELECT * FROM ServiceProviders WHERE UserName = @UserName AND Password = @Password";
-                    
-                    string query = "SELECT * FROM ServiceProviders WHERE BINARY UserName = BINARY @UserName AND BINARY Password = BINARY @Password";
+                   string query = "SELECT * FROM ServiceProviders WHERE BINARY UserName = BINARY @UserName AND BINARY Password = BINARY @Password";
                     
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {

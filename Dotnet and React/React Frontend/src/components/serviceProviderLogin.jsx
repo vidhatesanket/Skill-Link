@@ -40,10 +40,6 @@ const handleSubmit = async (e) => {
               const {serviceProviderExists } = response.data; 
               // setServiceProvider(serviceProviderExists);
               localStorage.setItem("serviceProvider", JSON.stringify(serviceProviderExists));
-                // sessionStorage["skills"]=skills
-                // sessionStorage["namefirst"]=namefirst
-                // sessionStorage["username"]=username
-                // sessionStorage["wages"]=wages
                 sessionStorage["successsp"]="successsp";
 
                 alert("success")
@@ -53,10 +49,7 @@ const handleSubmit = async (e) => {
             }
         
            }   )
-        
-        
-        // setMessage(response.data); // Set the message received from the server
-    } catch (error) {
+         } catch (error) {
        alert("Invalid credentials");
         setMessage('An error occurred. Please try again later.'); // Set a generic error message
     }
@@ -65,8 +58,6 @@ const handleSubmit = async (e) => {
     <div className="login-main">
       <div className="login-left">
         <img src={Image} alt="" />
-        {/* <p style="background-image: url(../assets/image.png')">To login as a serviceprovider</p>
-        <a href="/">click here</a> */}
       </div>
       <div className="login-right">
         <div className="login-right-container">

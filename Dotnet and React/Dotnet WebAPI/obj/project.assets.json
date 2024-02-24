@@ -3080,11 +3080,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\OneDrive\\Desktop\\CDAC Project\\Skill-Link\\New Dotnet\\WebAPI\\webapi.csproj",
+      "projectUniqueName": "C:\\Users\\user\\OneDrive\\Desktop\\my project\\Skill-Link\\Dotnet and React\\Dotnet WebAPI\\webapi.csproj",
       "projectName": "webapi",
-      "projectPath": "C:\\Users\\user\\OneDrive\\Desktop\\CDAC Project\\Skill-Link\\New Dotnet\\WebAPI\\webapi.csproj",
+      "projectPath": "C:\\Users\\user\\OneDrive\\Desktop\\my project\\Skill-Link\\Dotnet and React\\Dotnet WebAPI\\webapi.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\OneDrive\\Desktop\\CDAC Project\\Skill-Link\\New Dotnet\\WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\user\\OneDrive\\Desktop\\my project\\Skill-Link\\Dotnet and React\\Dotnet WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",

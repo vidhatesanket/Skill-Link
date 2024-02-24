@@ -35,21 +35,6 @@ namespace WebAPI.Controllers;
             return Ok(bookingLists);
         }
 
-        // [HttpPost("serviceProvider/bookingList")]
-        // public IActionResult AddIntoBookingList([FromBody] BookingListViewModel model){
-
-        //     for (int i = 0; i < model.UserIDs.Length; i++)
-        //     {
-        //         BookingListManager.AddIntoBookingList(modeluserId, model.serviceProviderData);
-        //     }
-        //     foreach (int userId in model.UserIDs){
-        //         Console.WriteLine("UserID's  in array "+ userId);
-                
-                    
-        //     }
-            
-        //     return Ok("Confirmed!!");
-        // }
         [HttpPost("serviceProvider/bookingList")]
         public IActionResult AddIntoBookingList([FromBody] BookingListViewModel model)
         {
